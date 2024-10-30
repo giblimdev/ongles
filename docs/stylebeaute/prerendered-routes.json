@@ -1,0 +1,9 @@
+{
+  "routes": [
+    "/",
+    "/cart",
+    "/login",
+    "/order",
+    "/products/1"
+  ]
+}
