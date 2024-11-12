@@ -1,0 +1,98 @@
+<div class="bg-gray-100">
+    <div class="container mx-auto p-4">
+       <h1 class="text-3xl font-bold mb-4">Détail de l'Article</h1>
+       <div class="bg-white shadow rounded-lg p-6">
+          <div class="bg-red-200 p-2 rounded mb-4 text-sm text-gray-700">{{article.store}} &gt; {{article.category}} &gt; {{article.classe}} &gt; {{article.subclasse}}&gt; {{article.rank}}</div>
+          <div class="flex flex-wrap -mx-4">
+             <div class="b1 w-full md:w-1/2 px-4 mb-4 md:mb-0">
+                <div class="mb-2">
+                   <button class="text-gray-500 hover:text-red-500">
+                    <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+                <img src="{{article.image}}" alt="item.name" class="w-full h-auto rounded-lg shadow">
+                <div class="mt-4"> 
+                    <h3 class="text-lg font-bold mb-2">Partager :</h3> 
+                    <div class="flex space-x-4"> 
+                        <button class="text-gray-500 hover:text-pink-500"> <i class="fas fa-share-alt"></i> </button> 
+                        <a href="https://www.instagram.com" class="text-gray-500 hover:text-pink-500"> <i class="fab fa-instagram"></i> </a> 
+                        <a href="https://www.tiktok.com" class="text-gray-500 hover:text-pink-500"> <i class="fab fa-tiktok"></i> </a> 
+                        <a href="https://www.facebook.com" class="text-gray-500 hover:text-pink-500"> <i class="fab fa-facebook"></i> </a> 
+                        <a href="https://www.pinterest.com" class="text-gray-500 hover:text-pink-500"> <i class="fab fa-pinterest"></i> </a> 
+                    </div> 
+                </div>
+
+             </div>
+             <div class="w-full md:w-1/2 px-4">
+                <div class="card p-4 bg-gray-50 rounded-lg shadow-lg">
+                   <h2 class="text-2xl font-bold mb-2">{{article.name}}</h2>
+                   <p class="text-lg font-semibold">{{article.brand}}</p>
+                   <p class="mb-2">  
+                    <app-rating [rating]="article.rating"></app-rating>
+                    {{article.rating}} <a href="#note" class="text-blue-500 underline">8 avis</a></p>
+                   <p class="text-justify mb-2">resumé : {{article.summary}}<a href="#description" class="text-blue-500 underline">En savoir plus</a></p>
+                   <div class="text-gray-700 mb-2">Info : {{article.info}}</div>
+                   <div class="text-xl font-semibold text-green-500 mb-4">prix : {{article.price}} € TTC</div>
+                   <div class="flex items-center space-x-4">
+                      <div class="flex items-center border border-pink-300 rounded-full">
+                         <button class="px-4 py-2 bg-gray-200 rounded-l-full hover:bg-gray-300" 
+                            onclick="decreaseQuantity()">
+                            <i class="fas fa-minus"></i>
+                         </button>
+                         <input type="text" id="quantity" value="1" 
+                            class="w-10 text-center border-none focus:outline-none">
+                         <button class="px-4 py-2 bg-gray-200 rounded-r-full hover:bg-gray-300" 
+                            onclick="increaseQuantity()">
+                            <i class="fas fa-plus"></i>
+                         </button>
+                      </div>
+                      <button class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600">
+                         <i class="fas fa-shopping-cart"></i> <span class="text-1xl-bold">Ajouter au panier</span>
+                      </button>
+                   </div>
+                </div>
+                <div class="mt-2 card p-4 bg-gray-50 rounded-lg shadow-lg">
+                   <h3 class="text-lg font-bold">{{article.availability}} en magasin</h3>
+                   <p class="text-sm text-gray-700 mb-2">Pour connaître le stock dans un magasin proche de chez vous, choisissez un magasin préféré</p>
+                   <p class="text-sm text-gray-700"><i class="fas fa-map-marker-alt text-pink-500"></i> Sélectionner un magasin</p>
+                </div>
+                <div class="mt-2 card p-4 bg-gray-50 rounded-lg shadow-lg">
+                   <h3 class="text-lg font-bold">Commander en ligne</h3>
+                   <p class="text-sm text-gray-700 mb-2">Retrait Click&Collect 2h offert</p>
+                   <p class="text-sm text-gray-700 mb-2"><i class="fas fa-map-marker-alt text-pink-500"></i> Sélectionner un magasin</p>
+                   <div class="flex justify-between text-sm text-gray-700">
+                      <div>Livraison à domicile ou en point relais</div>
+                      <div>Disponible</div>
+                   </div>
+                </div>
+                <div class="mt-2 card p-4 bg-gray-50 rounded-lg shadow-lg">
+                   <h3 class="text-lg font-bold">Moyens de paiement</h3>
+                </div>
+             </div>
+          </div>
+          <div class="information mt-6">
+             <article class="mb-4">
+                <h3 id="description" class="text-xl font-bold mb-2">Description</h3>
+                <p>{{article.description}}</p>
+             </article>
+             <article class="mb-4">
+                <h3 class="text-xl font-bold mb-2">Caractéristiques</h3>
+                <p>{{article.features}}</p>
+             </article>
+             <article class="mb-4">
+                <h3 class="text-xl font-bold mb-2">Mode d'emploi</h3>
+                <p>{{article.usage}}</p>
+             </article>
+          </div>
+       </div>
+    </div>
+    <div class="container mx-auto mt-8">
+       <div class="text-2xl font-bold mb-4">Autres Articles</div>
+       <!-- Ajouter ici d'autres articles -->
+    </div>
+    <div id="note" class="container mx-auto mt-8">
+       <h3 class="text-xl font-bold mb-2">Avis clients :</h3>
+       <!-- Ajouter ici les avis clients -->
+    </div>
+ </div>
+ 

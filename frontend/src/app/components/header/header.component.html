@@ -1,0 +1,51 @@
+<div class="text-pink-950">
+   <div class="bg-pink-950 text-pink-50 justify-center py-2">
+     <p class="text-center">{{messageTop}}</p>
+   </div>
+   <div class="flex flex-col md:flex-row justify-around items-center"> 
+     <div class="rounded-full overflow-hidden min-w-40 h-20 m-4">
+       <img src="Capture d’écran 2024-11-10 010202.png" alt="logo" class="object-cover w-full h-full">
+     </div>
+     <div class="flex items-center m-4"> 
+       <input type="text" placeholder="Rechercher un article" class="px-4 py-2 rounded-l-full border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+       <button class="bg-pink-500 text-white px-4 py-2 rounded-r-full hover:bg-pink-600"> 
+         <i class="fas fa-search"></i> 
+       </button> 
+     </div>
+ 
+     <div class="flex flex-wrap justify-center space-x-4 items-center m-4">
+       <a routerLink="/find-salon" class="inline-block flex items-center space-x-2 text-gray-700">
+         <i class="text-2xl fas fa-map-marker-alt"></i> 
+         <span class="text-sm text-pink-950 whitespace-nowrap">Trouver son salon</span> 
+       </a>
+ 
+       <a routerLink="/like" class="inline-block flex items-center space-x-2"> 
+         <i class="text-2xl fas fa-heart"></i>
+         <span class="text-pink-950 whitespace-nowrap">Mes coups de Cœur</span>
+       </a>
+       <a routerLink="/cart" class="inline-block flex items-center space-x-2 text-gray-700"> 
+         <i class="text-2xl fas fa-shopping-cart"></i>
+         <span class="text-sm text-pink-950 whitespace-nowrap">Panier ({{itemNb}})</span>
+       </a>
+       <a routerLink="/login" class="inline-block flex items-center space-x-2 text-gray-700"> 
+         <i class="text-2xl fas fa-user"></i> 
+         <span class="text-sm text-pink-950 whitespace-nowrap">{{logInfo}}</span>
+       </a>
+     </div>
+   </div>
+   <nav class="md:flex justify-center w-full bg-pink-800 relative"> 
+     <div *ngFor="let category of categories; let i = index" (mouseover)="showClasses(i)"> 
+       <div class="text-white mx-2 hover:bg-pink-600 px-4 py-2">
+         {{ category.name }}
+       </div> 
+       <div *ngIf="activeCategoryIndex === i" 
+            class="absolute left-0 right-0 bg-white text-black p-4 shadow-md w-full sm:w-1/2 flex flex-wrap mt-2 mx-auto"
+            (mouseleave)="hideClasses()"> 
+         <div *ngFor="let classItem of category.classes" class="w-full sm:w-1/3">
+           <p class="b1">{{ classItem }}</p>
+         </div>
+       </div>
+     </div> 
+   </nav>
+ </div>
+ 
